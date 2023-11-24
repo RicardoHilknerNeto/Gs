@@ -1,95 +1,114 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { Modal ,Button} from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../assets/scss/LoginForm.scss"
+import styled from "styled-components";
+import Dormindo from "../assets/img/dormindonuvens.png";
 
-import styled from "styled-components"
+const Container = styled.div`
+  display: flex;
+  width: 60%;
+  height: 50vh;
+  background-color: lightblue;
+  border-radius: 10px;
+  margin: 0 auto; /* Centraliza horizontalmente */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Valores para a sombra */
+  margin-top: 10%;
+`;
+const Left = styled.div`
+  width: 50%;
+  height: 100%;
+`;
+const Title = styled.h2`
+  position: relative;
+  right: 30%;
+  top: 1em;
+`;
 
-export const Pmodal = styled.p`
-    font-size:25px;
-    color:#355214;
-    text-align:center;
-`
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 3em;
+`;
 
-export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
+const FormGroup = styled.div`
+  margin-bottom: 20px;
+`;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch("http://localhost:5000/logins")
-      .then((response) => response.json())
-      .then((data) => {
-        const user = data.find((user) => user.email === email && user.password === password);
+const Label = styled.label`
+  font-weight: bold;
+`;
 
-        if (user) {
-            setShowModal(true)
-        } else {
-          alert("Autenticação falhou. Verifique suas credenciais.");
-        }
-      });
-  };
-  const hideModal = () => {
-    setShowModal(false);
-    setTimeout(() => {
-        navigate("/usuario")
-    }, 2000);
-  };
+const Input = styled.input`
+  width: calc(100% - 10px);
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+`;
 
+const Button = styled.button`
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+const Right = styled.div`
+  width: 50%;
+  height: 100%;
+`;
+const Img = styled.img`
+  width: 50%;
+  position: relative;
+  top: 20px;
+`;
+const Member = styled.h2`
+  position: relative;
+  top: 30%;
+  text-decoration: underline;
+`;
+function Cadastro() {
   return (
-    <div className="banner">
-      <div className="container">
-        <div className="header">
-          <h2 className="titulo">Fazer Login</h2>
-        </div>
-        <div className="form">
-          <div className="app-container">
-            <form onSubmit={handleSubmit}>
-              <div className="form-control">
-                <label>E-mail:</label>
-                <input
-                  type="email"
-                  placeholder="Seu Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
-
-              <div className="form-control">
-                <label>Senha:</label>
-                <input
-                  type="password"
-                  placeholder="Senha"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-
-              <div className="form-control">
-                <button type="submit">Fazer Login</button>
-                <p><Link to="/cadastro" className="LinkBack">Voltar ao cadastro</Link></p>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <Modal show={showModal} onHide={hideModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Bem Vindo</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Pmodal>Seja Bem vindo a reUse, é um prazer em  tê-lo  conosco</Pmodal>
-        </Modal.Body>
-        <Modal.Footer>
-        <Button variant="secondary" onClick={hideModal}>
-            Fechar
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
-    
+    <>
+      <Container>
+        <Left>
+          <Title>Sign Up!</Title>
+          <Form>
+            <FormGroup>
+              <Label htmlFor="name">Nome:</Label>
+              <Input type="text" id="name" name="name" required />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="email">E-mail:</Label>
+              <Input type="email" id="email" name="email" required />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="password">Senha:</Label>
+              <Input type="password" id="password" name="password" required />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="confirm-password">Confirmar Senha:</Label>
+              <Input
+                type="password"
+                id="confirm-password"
+                name="confirm-password"
+                required
+              />
+            </FormGroup>
+            <Button type="submit">Registrar</Button>
+          </Form>
+        </Left>
+        <Right>
+          <Img src={Dormindo} alt="" />
+          <Member>I am already member</Member>
+        </Right>
+      </Container>
+    </>
   );
 }
+
+export default Cadastro;
