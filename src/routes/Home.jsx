@@ -14,7 +14,7 @@ export const Container = styled.div`
 background-image: url(${fundo});
 background-size: cover;
 background-position: center;
-padding: 10rem 0;
+padding: 9rem 0;
 `
 
 const Barra = styled.div`
