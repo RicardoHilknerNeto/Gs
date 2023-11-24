@@ -71,12 +71,12 @@ const Member = styled.h2`
   top: 30%;
   text-decoration: underline;
 `;
-function Cadastro() {
+function Login() {
   return (
     <>
       <Container>
         <Left>
-          <Title>Sign Up!</Title>
+          <Title>Sign In!</Title>
           <Form>
             <FormGroup>
               <Label htmlFor="name">Nome:</Label>
@@ -90,25 +90,16 @@ function Cadastro() {
               <Label htmlFor="password">Senha:</Label>
               <Input type="password" id="password" name="password" required />
             </FormGroup>
-            <FormGroup>
-              <Label htmlFor="confirm-password">Confirmar Senha:</Label>
-              <Input
-                type="password"
-                id="confirm-password"
-                name="confirm-password"
-                required
-              />
-            </FormGroup>
-            <Button type="submit">Registrar</Button>
+            <Button type="submit">Login</Button>
           </Form>
         </Left>
         <Right>
           <Img src={Dormindo} alt="" />
-          <Member>I am already member</Member>
+          <Member>Ainda não tenho conta</Member>
         </Right>
       </Container>
     </>
   );
 }
 
-export default Cadastro;
+export default Login;
