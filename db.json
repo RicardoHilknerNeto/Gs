@@ -1,0 +1,11 @@
+{
+  "logins": [
+    {
+      "name": "teste ",
+      "email": "teste@gmail.com",
+      "password": "123456",
+      "passwordConfirmation": "123456",
+      "id": 1
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    background: lightgray;
+    text-align: center;
+    font-family: sans-serif;
+    color: #fefefe;
+  }
+  .container {
+    position: relative;
+    width: 320px;
+    margin: 100px auto 0 auto;
+    perspective: 1000px;
+  }
+  
+  .carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d; 
+    animation: rotate360 60s infinite forwards linear;
+  }
+  .carousel__face { 
+    position: absolute;
+    width: 300px;
+    height: 187px;
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    background-size: cover;
+    box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.5);
+    display: flex;
+  }
+  
+  span {
+    margin: auto;
+    font-size: 2rem;
+  }
+  
+  a {
+    text-decoration: none;
+    color: white;
+    
+  }
+  
+  .carousel__face:nth-child(1) {
+    background-image: url("https://i0.wp.com/ies.med.br/wp-content/uploads/2021/03/Dia-Mundial-do-Sono.jpg?fit=1280%2C1145&ssl=1");
+    transform: rotateY(  0deg) translateZ(430px); }
+  .carousel__face:nth-child(2) { 
+    background-image: url("https://img.freepik.com/fotos-premium/medica-verificando-a-febre-do-termometro-digital_107420-70319.jpg?size=626&ext=jpg");
+      transform: rotateY( 40deg) translateZ(430px); }
+  .carousel__face:nth-child(3) {
+    background-image: url("https://imagens.climatempo.com.br/climapress/galeria/2016/04/b6cce6baf7f4750190fb3f49e3b4fa22.png");
+    transform: rotateY( 80deg) translateZ(430px); }
+  .carousel__face:nth-child(4) {
+    background-image: url("https://www.ufsm.br/app/uploads/sites/601/2022/03/2-enfermeiro-1024x668.jpg");
+    transform: rotateY(120deg) translateZ(430px); }
+  .carousel__face:nth-child(5) { 
+   transform: rotateY(160deg) translateZ(430px); }
+  .carousel__face:nth-child(6) { 
+    background-image: url("https://img.freepik.com/vetores-gratis/mulher-contando-conceito-de-insonia-de-ovelha_23-2148655247.jpg");
+   transform: rotateY(200deg) translateZ(430px); }
+  .carousel__face:nth-child(7) { 
+    background-image: url("https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-de-insonia_23-2148651013.jpg");
+   transform: rotateY(240deg) translateZ(430px); }
+  .carousel__face:nth-child(8) {
+    background-image: url("https://img.freepik.com/vetores-premium/ilustracao-do-conceito-de-insonia_23-2148672109.jpg");
+    transform: rotateY(280deg) translateZ(430px); }
+  .carousel__face:nth-child(9) {
+    background-image: url("https://img.freepik.com/vetores-gratis/conceito-de-insonia-ilustrado_52683-46151.jpg");
+    transform: rotateY(320deg) translateZ(430px); }
+  
+  
+  
+  @keyframes rotate360 {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(-360deg);
+    }
+  }
+  
