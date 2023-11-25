@@ -8,7 +8,7 @@ import Home from './routes/Home.jsx'
 import Sobre from "./routes/Sobre.jsx"
 import Parceiros from './routes/Parceiros.jsx'
 import Suporte from './routes/Suporte.jsx'
-import Login from './routes/Login.jsx'
+import Login from './routes/Login/Login.jsx'
 
 const router =createBrowserRouter([
   {path: "/", element:<App/>, errorElement: <Error404/>,

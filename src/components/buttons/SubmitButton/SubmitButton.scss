@@ -1,0 +1,11 @@
+@import "../../../styles/colors.scss";
+
+.submit {
+    background-color: green;
+    position: relative;
+    right: 25%;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
